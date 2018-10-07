@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
                 rg = _idToString(rg);
                 if (req.params.format != "json") {
                     res.render('index', {
-                        title: 'Express',
+                        title: 'Clima Clever -  Aire acondicionado - Gasfitería - Calefacción Centralizada',
                         servicios: r,
                         galeria: rg
                     });

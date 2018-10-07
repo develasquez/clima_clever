@@ -1,12 +1,28 @@
 doctype html
-html
+html(xmlns='http://www.w3.org/1999/xhtml', xmlns:b='http://www.google.com/2005/gml/b', xmlns:data='http://www.google.com/2005/gml/data', xmlns:expr='http://www.google.com/2005/gml/expr', xmlns:fb='http://www.facebook.com/2008/fbml', xmlns:og='http://opengraphprotocol.org/schema/')
   head
     title= title
-    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    
-
+    meta(name="HandheldFriendly", content="True")
+    meta(name="MobileOptimized", content="320")
+    meta(name="viewport", content="width=device-width, initial-scale=1,user-scalable=no")
+    meta(name="mobile-web-app-capable", content="yes")
+    meta(name="theme-color", content="#1B0088")
+    meta(name="twitter:card", content="summary")
+    meta(name="twitter:site", content="@clima_clever")
+    meta(name="twitter:creator", content="@clima_clever")
+    meta(itemprop="name", content="#{title}")
+    meta(itemprop="description", content="#{title}")
+    meta(itemprop="image", content="http://climaclever.cl/images/Aire_acondicionado_uso_domestico_slider.png")
+    meta(property="og:url", content="http://climaclever.cl")
+    meta(property="og:title", content="#{title}")
+    meta(property="og:type", content="article")
+    meta(property="og:image", content="http://climaclever.cl/images/Aire_acondicionado_uso_domestico_slider.png")
+    meta(property="og:description", content="#{title}")
+    meta(name="viewport", content="width=320, initial-scale=0.9,user-scalable=no")
+    meta(charset='utf-8')
+    meta(name="description",content="#{title}")
+    meta(name="keywords",content="Aire Acondicionado, Calefaccion Centralizada, Gasfitería")
     link(rel='stylesheet', href='/stylesheets/bootstrap-material-design.min.css')
-    
     link(rel='stylesheet', href='/stylesheets/style.css')
 
     link(href="https://fonts.googleapis.com/css?family=Raleway", rel="stylesheet")
