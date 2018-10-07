@@ -1,0 +1,25 @@
+extends layout
+block content
+  .col-md-8
+    ul.nav.nav-pills.nav-justified
+      li
+        a(href="/galeriacategoriaservicio") Galeriacategoriaservicio
+      li.active
+        a(href="/galeriacategoriaservicio/new") New
+      form(method="POST")
+        .form-group
+          label(for="categoriaservicio") Categoriaservicio
+          select.form-control#categoriaservicio(placeholder="categoriaservicio",name="categoriaservicio",value="#{(galeriacategoriaservicio?galeriacategoriaservicio.categoriaservicio[0]._id:'')}")
+          script.
+             $(function () {
+                 connection.getRefData('categoriaservicio','_id','#{(galeriacategoriaservicio?galeriacategoriaservicio.categoriaservicio[0]._id:'')}');
+             });
+        .form-group
+          label(for="foto") Foto
+          input.form-control#foto(type="text",placeholder="foto",name="foto",value="#{(galeriacategoriaservicio?galeriacategoriaservicio.foto:'')}")
+        .form-group
+          label(for="orden") Orden
+          input.form-control#orden(type="number",placeholder="orden",name="orden",value="#{(galeriacategoriaservicio?galeriacategoriaservicio.orden:'')}")
+        button.btn.btn-primary(type="submit") Accept 
+        if galeriacategoriaservicio
+          a(href="/galeriacategoriaservicio/#{galeriacategoriaservicio._id}/delete").btn.btn-danger Delete

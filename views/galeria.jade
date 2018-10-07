@@ -1,0 +1,25 @@
+extends layout
+block content
+  .col-md-8
+    ul.nav.nav-pills.nav-justified
+      li.active
+        a(href="/galeria") Galeria
+      li
+        a(href="/galeria/new") New
+    table#tRows.table
+      tr
+        td(colspan=5)#tTitle #{title}
+      tr
+      td _id
+      td servicios
+      td foto
+      td detalle
+      td enlace
+      each el in galeria
+        tr
+        td
+          a(href="/galeria/#{el._id}") #{el._id}
+        td= el.servicios[0].nombre
+        td= el.foto
+        td= el.detalle
+        td= el.enlace

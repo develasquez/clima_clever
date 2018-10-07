@@ -1,0 +1,9 @@
+//Model Name galeria.json
+
+{
+	"servicios":"ref",
+	"foto":"text",
+	"detalle":"text",
+	"enlace":"text"
+}
+//sql_query: CREATE TABLE IF NOT EXISTS galeria ( _id  INT NOT NULL , ,,,

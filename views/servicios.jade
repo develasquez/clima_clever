@@ -1,0 +1,29 @@
+extends layout
+block content
+  .col-md-8
+    ul.nav.nav-pills.nav-justified
+      li.active
+        a(href="/servicios") Servicios
+      li
+        a(href="/servicios/new") New
+    table#tRows.table
+      tr
+        td(colspan=7)#tTitle #{title}
+      tr
+      td _id
+      td nombre
+      td foto
+      td detalle
+      td intoduccion
+      td orden
+      td principal
+      each el in servicios
+        tr
+        td
+          a(href="/servicios/#{el._id}") #{el._id}
+        td= el.nombre
+        td= el.foto
+        td= el.detalle
+        td= el.intoduccion
+        td= el.orden
+        td= el.principal

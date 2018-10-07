@@ -1,0 +1,32 @@
+extends layout
+block content
+  .col-md-8
+    ul.nav.nav-pills.nav-justified
+      li
+        a(href="/servicios") Servicios
+      li.active
+        a(href="/servicios/new") New
+      form(method="POST")
+        .form-group
+          label(for="nombre") Nombre
+          input.form-control#nombre(type="text",placeholder="nombre",name="nombre",value="#{(servicios?servicios.nombre:'')}")
+        .form-group
+          label(for="foto") Foto
+          input.form-control#foto(type="text",placeholder="foto",name="foto",value="#{(servicios?servicios.foto:'')}")
+        .form-group
+          label(for="detalle") Detalle
+          input.form-control#detalle(type="text",placeholder="detalle",name="detalle",value="#{(servicios?servicios.detalle:'')}")
+        .form-group
+          label(for="intoduccion") Intoduccion
+          input.form-control#intoduccion(type="text",placeholder="intoduccion",name="intoduccion",value="#{(servicios?servicios.intoduccion:'')}")
+        .form-group
+          label(for="orden") Orden
+          input.form-control#orden(type="number",placeholder="orden",name="orden",value="#{(servicios?servicios.orden:'')}")
+        .form-group
+          label(for="principal") Principal
+          select.form-control#principal(name="principal",value="#{(servicios?servicios.principal:'')}")
+            option(value="0") NO
+            option(value="1") SI
+        button.btn.btn-primary(type="submit") Accept 
+        if servicios
+          a(href="/servicios/#{servicios._id}/delete").btn.btn-danger Delete

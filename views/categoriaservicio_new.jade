@@ -1,0 +1,31 @@
+extends layout
+block content
+  .col-md-8
+    ul.nav.nav-pills.nav-justified
+      li
+        a(href="/categoriaservicio") Categoriaservicio
+      li.active
+        a(href="/categoriaservicio/new") New
+      form(method="POST")
+        .form-group
+          label(for="servicios") Servicio
+          select.form-control#servicios(placeholder="servicio",name="servicio",value="#{(categoriaservicio?categoriaservicio.servicio[0]._id:'')}")
+          script.
+             $(function () {
+                 connection.getRefData('servicios','nombre','#{(categoriaservicio?categoriaservicio.servicio[0]._id:'')}');
+             });
+        .form-group
+          label(for="titulo") Titulo
+          input.form-control#titulo(type="text",placeholder="titulo",name="titulo",value="#{(categoriaservicio?categoriaservicio.titulo:'')}")
+        .form-group
+          label(for="foto") Foto
+          input.form-control#foto(type="text",placeholder="foto",name="foto",value="#{(categoriaservicio?categoriaservicio.foto:'')}")
+        .form-group
+          label(for="bajada") Bajada
+          input.form-control#bajada(type="text",placeholder="bajada",name="bajada",value="#{(categoriaservicio?categoriaservicio.bajada:'')}")
+        .form-group
+          label(for="cuerpo") Cuerpo
+          input.form-control#cuerpo(type="text",placeholder="cuerpo",name="cuerpo",value="#{(categoriaservicio?categoriaservicio.cuerpo:'')}")
+        button.btn.btn-primary(type="submit") Accept 
+        if categoriaservicio
+          a(href="/categoriaservicio/#{categoriaservicio._id}/delete").btn.btn-danger Delete

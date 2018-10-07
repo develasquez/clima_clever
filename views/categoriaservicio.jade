@@ -1,0 +1,27 @@
+extends layout
+block content
+  .col-md-8
+    ul.nav.nav-pills.nav-justified
+      li.active
+        a(href="/categoriaservicio") Categoriaservicio
+      li
+        a(href="/categoriaservicio/new") New
+    table#tRows.table
+      tr
+        td(colspan=6)#tTitle #{title}
+      tr
+      td _id
+      td servicio
+      td titulo
+      td foto
+      td bajada
+      td cuerpo
+      each el in categoriaservicio
+        tr
+        td
+          a(href="/categoriaservicio/#{el._id}") #{el._id}
+        td= el.servicio[0].nombre
+        td= el.titulo
+        td= el.foto
+        td= el.bajada
+        td= el.cuerpo

@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet")
+    script(src="http://code.jquery.com/jquery.min.js" ,type="text/javascript")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ,type="text/javascript")
+    script(src="/javascripts/connection.js" ,type="text/javascript")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body.container-fluid
+    .row
+      include nav
+      block content

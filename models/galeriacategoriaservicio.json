@@ -1,0 +1,8 @@
+//Model Name galeriacategoriaservicio.json
+
+{
+	"categoriaservicio":"ref",
+	"foto":"text",
+	"orden":"int"
+}
+//sql_query: CREATE TABLE IF NOT EXISTS galeriacategoriaservicio ( _id  INT NOT NULL , ,,

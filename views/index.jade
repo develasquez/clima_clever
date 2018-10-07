@@ -1,0 +1,81 @@
+extends layoutindex
+
+block content
+  .row.header
+    .col-sm-10
+      .logo
+        img(src="./images/logo_landscape.png")
+    .col-sm-1.menu-item
+      a(href="#Contacto") Contacto
+    .col-sm-1.menu-item
+      a(href="#Servicios") Servicios
+  .row
+    #carouselExampleIndicators.carousel.slide(data-ride='carousel',data-interval="3000")
+      ol.carousel-indicators
+        - index=0;
+        each img in galeria
+          li.active(data-target='#carouselExampleIndicators', data-slide-to="#{index}")
+          - index++;
+      .carousel-inner
+        - index=0;
+        each img in galeria
+          - if (index == 0)
+              .carousel-item.active
+                img.d-block.w-100(src='#{img.foto}', alt='#{img.detalle}')
+                .carousel-caption.d-none.d-md-block
+                  p.detalle_servicio #{img.servicios[0].intoduccion}
+                  h5.nombre_servicio #{img.servicios[0].nombre}
+          - else
+              .carousel-item
+                img.d-block.w-100(src='#{img.foto}', alt='#{img.detalle}')
+                .carousel-caption.d-none.d-md-block
+                  p.detalle_servicio #{img.servicios[0].intoduccion}
+                  h5.nombre_servicio #{img.servicios[0].nombre}
+          - index++
+      a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+      a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next
+  .row
+    .col-xs-12
+      img.brand( src="./images/clima_clever.png")
+  .row
+    each el in servicios
+      .card.col-md-3.col-xs-12
+        img.card-img-top(src='#{el.foto}', alt='#{el.nombre}')
+        .card-body
+          h5.card-title #{el.nombre}
+          p.card-text
+            | #{el.detalle}
+          a.btn.btn-primary(href='/servicios/#{el.nombre.toLowerCase().replace(/ /g,"")}') 
+            | + Info.
+  .row.contacto
+    .col-xs-12.col-md-12
+      h3 Contacto
+  .row
+    .col-xs-12.col-md-8.offset-md-2
+      p Estamos atentos a tus necesidades, dejanos tus datos y nos pondremos en contacto a la brevedad.
+  .row
+    .col-xs-12.col-md-8.offset-md-2
+      form
+        .form-group
+          label(for='nombre') Nombre
+          input#nombre.form-control( placeholder='Juan Perez')
+        .form-group
+          label(for='telefono') Teléfono
+          input#telefono.form-control( placeholder='+56912345678')
+        .form-group
+          label(for='exampleFormControlInput1') Email
+          input#email.form-control(type='email', placeholder='yo@example.com')
+        .form-group
+          label(for='serviciorequerido') Servicio
+          select#serviciorequerido.form-control
+            option(value="0") Seleccione un servicio
+            each el in servicios
+              option(value='#{el._id}') #{el.nombre}
+        .form-group
+          label(for='comentario') Detalle o comentario
+          textarea#comentario.form-control(rows='3')
+
